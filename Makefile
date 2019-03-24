@@ -14,7 +14,7 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 
 lint:
-	flake8 bitsharesapi bitsharesbase examples
+	flake8 dexstoreapi dexstorebase examples
 
 test:
 	python3 setup.py test

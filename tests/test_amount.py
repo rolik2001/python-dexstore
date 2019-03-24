@@ -1,18 +1,18 @@
 import unittest
-from bitshares import BitShares
-from bitshares.amount import Amount
-from bitshares.asset import Asset
-from bitshares.instance import set_shared_bitshares_instance, SharedInstance
-from .fixtures import fixture_data, bitshares
+from dexstore import DexStore
+from dexstore.amount import Amount
+from dexstore.asset import Asset
+from dexstore.instance import set_shared_dexstore_instance, SharedInstance
+from .fixtures import fixture_data, dexstore
 
 
 class Testcases(unittest.TestCase):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.asset = Asset("BTS")
-        self.symbol = Asset("BTS")["symbol"]
-        self.precision = Asset("BTS")["precision"]
+        self.asset = Asset("DST")
+        self.symbol = Asset("DST")["symbol"]
+        self.precision = Asset("DST")["precision"]
         self.asset2 = Asset("EUR")
 
     def setUp(self):

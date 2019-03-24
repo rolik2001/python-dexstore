@@ -1,6 +1,6 @@
 import unittest
-from bitsharesbase import operations
-from .fixtures import fixture_data, bitshares
+from dexstorebase import operations
+from .fixtures import fixture_data, dexstore
 
 
 class Testcases(unittest.TestCase):
@@ -9,8 +9,8 @@ class Testcases(unittest.TestCase):
         fixture_data()
 
     def test_add_one_proposal_one_op(self):
-        tx1 = bitshares.new_tx()
-        proposal1 = bitshares.new_proposal(tx1, proposer="init0")
+        tx1 = dexstore.new_tx()
+        proposal1 = dexstore.new_proposal(tx1, proposer="init0")
         op = operations.Transfer(**{
             "fee": {"amount": 0, "asset_id": "1.3.0"},
             "from": "1.2.0",
@@ -27,8 +27,8 @@ class Testcases(unittest.TestCase):
         self.assertEqual(ps["proposed_ops"][0]["op"][0], 0)
 
     def test_add_one_proposal_two_ops(self):
-        tx1 = bitshares.new_tx()
-        proposal1 = bitshares.new_proposal(tx1, proposer="init0")
+        tx1 = dexstore.new_tx()
+        proposal1 = dexstore.new_proposal(tx1, proposer="init0")
         op = operations.Transfer(**{
             "fee": {"amount": 0, "asset_id": "1.3.0"},
             "from": "1.2.0",
@@ -47,10 +47,10 @@ class Testcases(unittest.TestCase):
         self.assertEqual(ps["proposed_ops"][1]["op"][0], 0)
 
     def test_have_two_proposals(self):
-        tx1 = bitshares.new_tx()
+        tx1 = dexstore.new_tx()
 
         # Proposal 1
-        proposal1 = bitshares.new_proposal(tx1, proposer="init0")
+        proposal1 = dexstore.new_proposal(tx1, proposer="init0")
         op = operations.Transfer(**{
             "fee": {"amount": 0, "asset_id": "1.3.0"},
             "from": "1.2.0",
@@ -62,7 +62,7 @@ class Testcases(unittest.TestCase):
             proposal1.appendOps(op)
 
         # Proposal 1
-        proposal2 = bitshares.new_proposal(tx1, proposer="init0")
+        proposal2 = dexstore.new_proposal(tx1, proposer="init0")
         op = operations.Transfer(**{
             "fee": {"amount": 0, "asset_id": "1.3.0"},
             "from": "1.2.0",

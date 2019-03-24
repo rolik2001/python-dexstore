@@ -1,8 +1,8 @@
 import unittest
-from bitshares import BitShares
-from bitshares.asset import Asset
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.exceptions import AssetDoesNotExistsException
+from dexstore import DexStore
+from dexstore.asset import Asset
+from dexstore.instance import set_shared_dexstore_instance
+from dexstore.exceptions import AssetDoesNotExistsException
 from .fixtures import fixture_data
 
 

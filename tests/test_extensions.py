@@ -1,9 +1,9 @@
 import unittest
 from pprint import pprint
 
-from bitsharesbase.objects import CallOrderExtension, AccountCreateExtensions
+from dexstorebase.objects import CallOrderExtension, AccountCreateExtensions
 
-from .fixtures import fixture_data, bitshares, wif
+from .fixtures import fixture_data, dexstore, wif
 
 
 class Testcases(unittest.TestCase):

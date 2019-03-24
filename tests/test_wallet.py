@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 import unittest
-from bitshares import storage
-from bitshares.wallet import Wallet
-from bitshares.exceptions import KeyNotFound
-from bitsharesbase.account import PrivateKey
+from dexstore import storage
+from dexstore.wallet import Wallet
+from dexstore.exceptions import KeyNotFound
+from dexstorebase.account import PrivateKey
 from .fixtures import fixture_data
 
 
@@ -19,7 +19,7 @@ class Testcases(unittest.TestCase):
         self.assertFalse(wallet.created())
 
         self.assertTrue(bool(wallet.rpc))
-        self.assertEqual(wallet.prefix, "BTS")
+        self.assertEqual(wallet.prefix, "DST")
         wif1 = PrivateKey()
         wif2 = PrivateKey()
         wallet.setKeys([wif1, wif2])

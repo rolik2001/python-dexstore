@@ -5,17 +5,17 @@ import unittest
 from pprint import pprint
 from binascii import hexlify
 
-from bitshares import BitShares
-from bitsharesbase import transactions, memo, account, operations, objects
-from bitsharesbase.objects import Operation
-from bitsharesbase.signedtransactions import Signed_Transaction
-from bitsharesbase.account import PrivateKey
+from dexstore import DexStore
+from dexstorebase import transactions, memo, account, operations, objects
+from dexstorebase.objects import Operation
+from dexstorebase.signedtransactions import Signed_Transaction
+from dexstorebase.account import PrivateKey
 from graphenebase.base58 import ripemd160
 
-from .fixtures import fixture_data, bitshares, wif
+from .fixtures import fixture_data, dexstore, wif
 
 
-prefix = "BTS"
+prefix = "DST"
 ref_block_num = 34294
 ref_block_prefix = 3707022213
 expiration = "2016-04-06T08:29:27"
@@ -43,8 +43,8 @@ class Testcases(unittest.TestCase):
             print(txWire)
             print()
 
-        # Test against Bitshares backened
-        live = bitshares.rpc.get_transaction_hex(tx.json())
+        # Test against Dexstore backened
+        live = dexstore.rpc.get_transaction_hex(tx.json())
 
         # Compare expected result with test unit
         self.assertEqual(self.cm[:-130], txWire[:-130])
@@ -254,24 +254,24 @@ class Testcases(unittest.TestCase):
             "name": "foobar-f124",
             "owner": {"weight_threshold": 1,
                       "account_auths": [],
-                      'key_auths': [['BTS6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x',
+                      'key_auths': [['DST6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x',
                                     1], [
-                                    'BTS6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
+                                    'DST6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
                                     1]],
                       "address_auths": []
                       },
             "active": {"weight_threshold": 1,
                        "account_auths": [],
-                       'key_auths': [['BTS6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x',
+                       'key_auths': [['DST6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x',
                                       1], [
-                                     'BTS6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
+                                     'DST6zLNtyFVToBsBZDsgMhgjpwysYVbsQD6YhP3kRkQhANUB4w7Qp',
                                      1], [
-                                     'BTS8CemMDjdUWSV5wKotEimhK6c4dY7p2PdzC2qM1HpAP8aLtZfE7',
+                                     'DST8CemMDjdUWSV5wKotEimhK6c4dY7p2PdzC2qM1HpAP8aLtZfE7',
                                      1
                                      ]],
                        "address_auths": []
                        },
-            "options": {"memo_key": "BTS5TPTziKkLexhVKsQKtSpo4bAv5RnB8oXcG4sMHEwCcTf3r7dqE",
+            "options": {"memo_key": "DST5TPTziKkLexhVKsQKtSpo4bAv5RnB8oXcG4sMHEwCcTf3r7dqE",
                         "voting_account": "1.2.5",
                         "num_witness": 0,
                         "num_committee": 0,
@@ -288,7 +288,7 @@ class Testcases(unittest.TestCase):
                     [1, {"asset": "1.3.127",
                          "num_top_holders": 10}]
             },
-            "prefix": "BTS"
+            "prefix": "DST"
         })
         self.cm = ("f68585abf4dce7c804570105f26416000000000000211b03000b666f"
                    "6f6261722d6631323401000000000202fe8cc11cc8251de6977636b5"
@@ -315,7 +315,7 @@ class Testcases(unittest.TestCase):
                     "weight_threshold": 1,
                     "account_auths": [["1.2.96086", 1]],
                     "key_auths": [
-                        ["BTS6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x", 1]
+                        ["DST6pbVDAjRFiw6fkiKYCrkz7PFeL7XNAfefrsREwg8MKpJ9VYV9x", 1]
                     ],
                     "address_auths": [],
                 },
@@ -323,12 +323,12 @@ class Testcases(unittest.TestCase):
                     "weight_threshold": 1,
                     "account_auths": [["1.2.96086", 1]],
                     "key_auths": [
-                        ["BTS8CemMDjdUWSV5wKotEimhK6c4dY7p2PdzC2qM1HpAP8aLtZfE7", 1]
+                        ["DST8CemMDjdUWSV5wKotEimhK6c4dY7p2PdzC2qM1HpAP8aLtZfE7", 1]
                     ],
                     "address_auths": [],
                 },
                 "new_options": {
-                    "memo_key": "BTS5TPTziKkLexhVKsQKtSpo4bAv5RnB8oXcG4sMHEwCcTf3r7dqE",
+                    "memo_key": "DST5TPTziKkLexhVKsQKtSpo4bAv5RnB8oXcG4sMHEwCcTf3r7dqE",
                     "voting_account": "1.2.5",
                     "num_witness": 0,
                     "num_committee": 0,
@@ -336,7 +336,7 @@ class Testcases(unittest.TestCase):
                     "extensions": [],
                 },
                 "extensions": {},
-                "prefix": "BTS",
+                "prefix": "DST",
             }
         )
         self.cm = (
@@ -448,7 +448,7 @@ class Testcases(unittest.TestCase):
                 "witness": "1.6.63",
                 "witness_account": "1.2.212",
                 "new_url": "https://example.com",
-                "new_signing_key": "BTS5vfCLKyXYb44znYjbrJXCyvvx3SuifhmvemnQsdbf61EtoR36z",
+                "new_signing_key": "DST5vfCLKyXYb44znYjbrJXCyvvx3SuifhmvemnQsdbf61EtoR36z",
             }
         )
         self.cm = (
@@ -932,8 +932,8 @@ class Testcases(unittest.TestCase):
         pprint(tx.json())
         print("=" * 80)
 
-        # Test against Bitshares backened
-        self.cm = bitshares.rpc.get_transaction_hex(tx.json())
+        # Test against Dexstore backened
+        self.cm = dexstore.rpc.get_transaction_hex(tx.json())
 
         print("soll: %s" % self.cm[:-130])
         print("ist:  %s" % txWire[:-130])

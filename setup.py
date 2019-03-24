@@ -13,13 +13,13 @@ except LookupError:
     ascii = codecs.lookup("ascii")
     codecs.register(lambda name, enc=ascii: {True: enc}.get(name == "mbcs"))
 
-VERSION = "0.3.0"
-URL = "https://github.com/bitshares/python-bitshares"
+VERSION = "1.2.2"
+URL = "https://github.com/rolik2001/python-dexstore"
 
 setup(
-    name="bitshares",
+    name="dexstore",
     version=VERSION,
-    description="Python library for bitshares",
+    description="Python library for dexstore",
     long_description=open("README.md").read(),
     download_url="{}/tarball/{}".format(URL, VERSION),
     author="Fabian Schuh",
@@ -27,8 +27,8 @@ setup(
     maintainer="Fabian Schuh",
     maintainer_email="Fabian@chainsquad.com",
     url=URL,
-    keywords=["bitshares", "library", "api", "rpc"],
-    packages=["bitshares", "bitsharesapi", "bitsharesbase"],
+    keywords=["dexstore", "library", "api", "rpc"],
+    packages=["dexstore", "dexstoreapi", "dexstorebase"],
     classifiers=[
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",

@@ -1,8 +1,8 @@
 import unittest
-from bitshares import BitShares, exceptions
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.account import Account
-from bitshares.committee import Committee
+from dexstore import DexStore, exceptions
+from dexstore.instance import set_shared_dexstore_instance
+from dexstore.account import Account
+from dexstore.committee import Committee
 from .fixtures import fixture_data
 
 

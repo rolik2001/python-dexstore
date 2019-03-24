@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import unittest
-from bitshares.blockchainobject import Object
-from .fixtures import fixture_data, bitshares
+from dexstore.blockchainobject import Object
+from .fixtures import fixture_data, dexstore
 
 
 class Testcases(unittest.TestCase):

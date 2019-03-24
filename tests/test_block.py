@@ -1,9 +1,9 @@
 import unittest
 from pprint import pprint
-from bitshares import BitShares
-from bitshares.block import Block, BlockHeader
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.utils import parse_time
+from dexstore import DexStore
+from dexstore.block import Block, BlockHeader
+from dexstore.instance import set_shared_dexstore_instance
+from dexstore.utils import parse_time
 from .fixtures import fixture_data
 
 

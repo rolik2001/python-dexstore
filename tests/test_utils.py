@@ -1,6 +1,6 @@
-from bitshares.utils import assets_from_string
+from dexstore.utils import assets_from_string
 
 
 def test_assets_from_string():
-    assert assets_from_string('USD:BTS') == ['USD', 'BTS']
-    assert assets_from_string('BTSBOTS.S1:BTS') == ['BTSBOTS.S1', 'BTS']
+    assert assets_from_string('USD:DST') == ['USD', 'DST']
+    assert assets_from_string('DSTBOTS.S1:DST') == ['DSTBOTS.S1', 'DST']

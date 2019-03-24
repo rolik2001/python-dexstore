@@ -1,10 +1,10 @@
 import unittest
 from pprint import pprint
-from bitshares import BitShares
-from bitshares.blockchain import Blockchain
-from bitshares.block import Block
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.utils import parse_time
+from dexstore import DexStore
+from dexstore.blockchain import Blockchain
+from dexstore.block import Block
+from dexstore.instance import set_shared_dexstore_instance
+from dexstore.utils import parse_time
 from .fixtures import fixture_data
 
 

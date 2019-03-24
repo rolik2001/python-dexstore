@@ -1,8 +1,8 @@
-from bitshares import BitShares
-from bitshares.instance import set_shared_bitshares_instance
-from bitshares.amount import Amount
-from bitshares.price import Price
-from bitshares.asset import Asset
+from dexstore import DexStore
+from dexstore.instance import set_shared_dexstore_instance
+from dexstore.amount import Amount
+from dexstore.price import Price
+from dexstore.asset import Asset
 import unittest
 
 
@@ -10,19 +10,19 @@ class Testcases(unittest.TestCase):
 
     def __init__(self, *args, **kwargs):
         super(Testcases, self).__init__(*args, **kwargs)
-        bitshares = BitShares(
-            "wss://node.bitshares.eu",
+        dexstore = DexStore(
+            "ws://127.0.0.1:7738",
             nobroadcast=True,
         )
-        set_shared_bitshares_instance(bitshares)
+        set_shared_dexstore_instance(dexstore)
 
     def test_init(self):
         # self.assertEqual(1, 1)
 
-        Price("0.315 USD/BTS")
+        Price("0.315 USD/DST")
         Price(1.0, "USD/GOLD")
-        Price(0.315, base="USD", quote="BTS")
-        Price(0.315, base=Asset("USD"), quote=Asset("BTS"))
+        Price(0.315, base="USD", quote="DST")
+        Price(0.315, base=Asset("USD"), quote=Asset("DST"))
         Price({
             "base": {"amount": 1, "asset_id": "1.3.0"},
             "quote": {"amount": 10, "asset_id": "1.3.106"}})

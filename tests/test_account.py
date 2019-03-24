@@ -2,14 +2,14 @@
 import unittest
 import mock
 from pprint import pprint
-from bitshares import BitShares
-from bitshares.account import Account
-from bitshares.amount import Amount
-from bitshares.asset import Asset
-from bitshares.price import Order
-from bitshares.instance import set_shared_bitshares_instance
-from bitsharesbase.operationids import getOperationNameForId
-from .fixtures import fixture_data, bitshares
+from dexstore import DexStore
+from dexstore.account import Account
+from dexstore.amount import Amount
+from dexstore.asset import Asset
+from dexstore.price import Order
+from dexstore.instance import set_shared_dexstore_instance
+from dexstorebase.operationids import getOperationNameForId
+from .fixtures import fixture_data, dexstore
 
 
 class Testcases(unittest.TestCase):
@@ -57,7 +57,7 @@ class Testcases(unittest.TestCase):
 
         # If this test fails, it may be that the order expired on-chain!
         #
-        # $ uptick sell 100.000 PORNXXX 100000 BTS --account xeroc
+        # $ uptick sell 100.000 PORNXXX 100000 DST --account xeroc
         #
         for order in orders:
             self.assertIsInstance(order, Order)
@@ -68,7 +68,7 @@ class Testcases(unittest.TestCase):
         self.assertIsInstance(account.callpositions, dict)
 
     def test_whitelist(self):
-        from bitsharesbase.operations import Account_whitelist
+        from dexstorebase.operations import Account_whitelist
 
         account = Account("init0")
         tx = account.whitelist("committee-account")
@@ -80,7 +80,7 @@ class Testcases(unittest.TestCase):
         )
 
     def test_blacklist(self):
-        from bitsharesbase.operations import Account_whitelist
+        from dexstorebase.operations import Account_whitelist
 
         account = Account("init0")
         tx = account.blacklist("committee-account")
@@ -92,7 +92,7 @@ class Testcases(unittest.TestCase):
         )
 
     def test_unlist(self):
-        from bitsharesbase.operations import Account_whitelist
+        from dexstorebase.operations import Account_whitelist
 
         account = Account("init0")
         tx = account.nolist("committee-account")
@@ -104,7 +104,7 @@ class Testcases(unittest.TestCase):
         )
 
     def test_accountupdate(self):
-        from bitshares.account import AccountUpdate
+        from dexstore.account import AccountUpdate
 
         t = {
             "id": "2.6.29",

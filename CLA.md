@@ -10,12 +10,12 @@ Individual Contributor exclusive License Agreement
 -------------------------------------------------
 
 Thank you for your interest in contributing to ChainSquad GmbH's
-python-bitshares ("We" or "Us").
+python-dexstore ("We" or "Us").
 
 The purpose of this contributor agreement ("Agreement") is to clarify
 and document the rights granted by contributors to Us. To make this
 document effective, please follow the instructions provided when sending a pull
-request at https://github.com/bitshares/python-bitshares.
+request at https://github.com/dexstore/python-dexstore.
 
 ### 0. Preamble
 

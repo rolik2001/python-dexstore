@@ -4,14 +4,14 @@ import yaml
 
 from pprint import pprint
 
-from bitshares import BitShares, storage
-from bitshares.instance import set_shared_blockchain_instance
-from bitshares.blockchainobject import BlockchainObject, ObjectCache
-from bitshares.asset import Asset
-from bitshares.account import Account
-from bitshares.proposal import Proposals, Proposal
+from dexstore import DexStore, storage
+from dexstore.instance import set_shared_blockchain_instance
+from dexstore.blockchainobject import BlockchainObject, ObjectCache
+from dexstore.asset import Asset
+from dexstore.account import Account
+from dexstore.proposal import Proposals, Proposal
 
-from bitsharesbase.operationids import operations
+from dexstorebase.operationids import operations
 
 # default wifs key for testing
 wifs = [
@@ -20,23 +20,23 @@ wifs = [
 ]
 wif = wifs[0]
 
-# bitshares instance
-bitshares = BitShares(
-    "wss://node.bitshares.eu", keys=wifs, nobroadcast=True, num_retries=1
+# dexstore instance
+dexstore = DexStore(
+    "ws://127.0.0.1:7738", keys=wifs, nobroadcast=True, num_retries=1
 )
-config = bitshares.config
+config = dexstore.config
 
 # Set defaults
-bitshares.set_default_account("init0")
-set_shared_blockchain_instance(bitshares)
+dexstore.set_default_account("init0")
+set_shared_blockchain_instance(dexstore)
 
 # Ensure we are not going to transaction anythin on chain!
-assert bitshares.nobroadcast
+assert dexstore.nobroadcast
 
 
 def fixture_data():
     # Clear tx buffer
-    bitshares.clear()
+    dexstore.clear()
 
     Account.clear_cache()
 

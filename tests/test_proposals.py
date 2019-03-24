@@ -1,9 +1,9 @@
 import unittest
 from pprint import pprint
-from bitshares import BitShares
-from bitsharesbase.operationids import getOperationNameForId
-from bitshares.instance import set_shared_bitshares_instance
-from .fixtures import fixture_data, bitshares
+from dexstore import DexStore
+from dexstorebase.operationids import getOperationNameForId
+from dexstore.instance import set_shared_dexstore_instance
+from .fixtures import fixture_data, dexstore
 
 
 class Testcases(unittest.TestCase):
@@ -12,10 +12,10 @@ class Testcases(unittest.TestCase):
         fixture_data()
 
     def test_finalizeOps_proposal(self):
-        # proposal = bitshares.new_proposal(bitshares.tx())
-        proposal = bitshares.proposal()
-        bitshares.transfer("init1", 1, "BTS", append_to=proposal)
-        tx = bitshares.tx().json()  # default tx buffer
+        # proposal = dexstore.new_proposal(dexstore.tx())
+        proposal = dexstore.proposal()
+        dexstore.transfer("init1", 1, "DST", append_to=proposal)
+        tx = dexstore.tx().json()  # default tx buffer
         ops = tx["operations"]
         self.assertEqual(len(ops), 1)
         self.assertEqual(
@@ -28,10 +28,10 @@ class Testcases(unittest.TestCase):
             "transfer")
 
     def test_finalizeOps_proposal2(self):
-        proposal = bitshares.new_proposal()
-        # proposal = bitshares.proposal()
-        bitshares.transfer("init1", 1, "BTS", append_to=proposal)
-        tx = bitshares.tx().json()  # default tx buffer
+        proposal = dexstore.new_proposal()
+        # proposal = dexstore.proposal()
+        dexstore.transfer("init1", 1, "DST", append_to=proposal)
+        tx = dexstore.tx().json()  # default tx buffer
         ops = tx["operations"]
         self.assertEqual(len(ops), 1)
         self.assertEqual(
@@ -44,10 +44,10 @@ class Testcases(unittest.TestCase):
             "transfer")
 
     def test_finalizeOps_combined_proposal(self):
-        parent = bitshares.new_tx()
-        proposal = bitshares.new_proposal(parent)
-        bitshares.transfer("init1", 1, "BTS", append_to=proposal)
-        bitshares.transfer("init1", 1, "BTS", append_to=parent)
+        parent = dexstore.new_tx()
+        proposal = dexstore.new_proposal(parent)
+        dexstore.transfer("init1", 1, "DST", append_to=proposal)
+        dexstore.transfer("init1", 1, "DST", append_to=parent)
         tx = parent.json()
         ops = tx["operations"]
         self.assertEqual(len(ops), 2)
@@ -64,9 +64,9 @@ class Testcases(unittest.TestCase):
             "transfer")
 
     def test_finalizeOps_changeproposer_new(self):
-        proposal = bitshares.proposal(proposer="init5")
-        bitshares.transfer("init1", 1, "BTS", append_to=proposal)
-        tx = bitshares.tx().json()
+        proposal = dexstore.proposal(proposer="init5")
+        dexstore.transfer("init1", 1, "DST", append_to=proposal)
+        tx = dexstore.tx().json()
         ops = tx["operations"]
         self.assertEqual(len(ops), 1)
         self.assertEqual(
@@ -81,8 +81,8 @@ class Testcases(unittest.TestCase):
 
     """
     def test_finalizeOps_changeproposer_legacy(self):
-        bitshares.proposer = "init5"
-        tx = bitshares.transfer("init1", 1, "BTS")
+        dexstore.proposer = "init5"
+        tx = dexstore.transfer("init1", 1, "DST")
         ops = tx["operations"]
         self.assertEqual(len(ops), 1)
         self.assertEqual(
@@ -97,11 +97,11 @@ class Testcases(unittest.TestCase):
     """
 
     def test_new_proposals(self):
-        p1 = bitshares.new_proposal()
-        p2 = bitshares.new_proposal()
+        p1 = dexstore.new_proposal()
+        p2 = dexstore.new_proposal()
         self.assertIsNotNone(id(p1), id(p2))
 
     def test_new_txs(self):
-        p1 = bitshares.new_tx()
-        p2 = bitshares.new_tx()
+        p1 = dexstore.new_tx()
+        p2 = dexstore.new_tx()
         self.assertIsNotNone(id(p1), id(p2))

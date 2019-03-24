@@ -1,18 +1,18 @@
-class BrokenBitsharesInstance():
+class BrokenDexstoreInstance():
     def __init__(self, *args, **kwargs):
         pass
 
     def __getattr__(self, name):
-        raise ValueError("Attempting to use BrokenBitsharesInstance")
+        raise ValueError("Attempting to use BrokenDexstoreInstance")
 
 
-class BitsharesIsolator(object):
+class DexstoreIsolator(object):
     enabled = False
 
     @classmethod
     def enable(self):
         if not self.enabled:
-            from bitshares.instance import set_shared_bitshares_instance
-            broken = BrokenBitsharesInstance()
-            set_shared_bitshares_instance(broken)
+            from dexstore.instance import set_shared_dexstore_instance
+            broken = BrokenDexstoreInstance()
+            set_shared_dexstore_instance(broken)
             self.enabled = True

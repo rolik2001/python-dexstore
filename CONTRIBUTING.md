@@ -2,7 +2,7 @@
 
 ## Introduction
 
-You are here to help BitShares and the python-bitshares library?
+You are here to help DexStore and the python-dexstore library?
 Awesome, feel welcome and read the following sections in order to know
 how to ask questions and how to work on something.
 
@@ -15,7 +15,7 @@ friendly in all of our spaces.
 ## Get in touch
 
 Feel free to get in contact with the developer community on
-[Telegram](https://t.me/pybitshares).
+[Telegram](https://t.me/pydexstore).
 
 ## Contributing to development
 
@@ -55,9 +55,9 @@ github-connected service.
 ### 1. Where do I go from here?
 
 If you've noticed a bug or have a question, [search the issue
-tracker][https://github.com/bitshares/python-bitshares/issues] to see if
+tracker][https://github.com/dexstore/python-dexstore/issues] to see if
 someone else in the community has already created a ticket. If not, go
-ahead and [make one][https://github.com/bitshares/python-bitshares/issues/new]!
+ahead and [make one][https://github.com/dexstore/python-dexstore/issues/new]!
 
 ### 2. Fork & create a branch
 
@@ -83,10 +83,10 @@ The entire test suite can be run in a sandbox through
 
 ### 4. Did you find a bug?
 
-* **Ensure the bug was not already reported** by [searching all issues][https://github.com/bitshares/python-bitshares/issues].
+* **Ensure the bug was not already reported** by [searching all issues][https://github.com/dexstore/python-dexstore/issues].
 
 * If you're unable to find an open issue addressing the problem,
-  [open a new one][https://github.com/bitshares/python-bitshares/issues/new]. Be sure
+  [open a new one][https://github.com/dexstore/python-dexstore/issues/new]. Be sure
   to include a **title and clear description**, as much relevant
   information as possible, and a **code sample** or an **executable test
   case** demonstrating the expected behavior that is not occurring.
@@ -105,9 +105,9 @@ everyone is a beginner at first
 
 Your patch should follow the same conventions & pass the same code
 quality checks as the rest of the project.
-[Codeclimate](https://codeclimate.com/github/bitshares/python-bitshares)
+[Codeclimate](https://codeclimate.com/github/dexstore/python-dexstore)
 will give you feedback in this regard. You can check & fix codeclimate's
-feedback by running it locally using [Codeclimate's CLI](https://codeclimate.com/github/bitshares/python-bitshares), via
+feedback by running it locally using [Codeclimate's CLI](https://codeclimate.com/github/dexstore/python-dexstore), via
 `codeclimate analyze`.
 
 ### 7. Make a Pull Request
@@ -115,9 +115,9 @@ feedback by running it locally using [Codeclimate's CLI](https://codeclimate.com
 **Pull requests are supposed to go against the `develop` branch, only!**
 
 At this point, you should switch back to your `develop` branch and make
-sure it's up to date with python-bitshares's `develop` branch:
+sure it's up to date with python-dexstore's `develop` branch:
 
-    git remote add upstream git@github.com:bitshares/python-bitshares.git
+    git remote add upstream git@github.com:dexstore/python-dexstore.git
     git checkout develop
     git pull upstream develop
 
