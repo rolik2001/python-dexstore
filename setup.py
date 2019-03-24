@@ -13,7 +13,7 @@ except LookupError:
     ascii = codecs.lookup("ascii")
     codecs.register(lambda name, enc=ascii: {True: enc}.get(name == "mbcs"))
 
-VERSION = "1.2.2"
+VERSION = "1.2.3"
 URL = "https://github.com/rolik2001/python-dexstore"
 
 setup(
